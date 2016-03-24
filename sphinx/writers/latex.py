@@ -1072,6 +1072,7 @@ class LaTeXTranslator(nodes.NodeVisitor):
         self.remember_multirowcol = {}
 
     def visit_row(self, node):
+        self.body.append('\\hline')
         self.table.col = 0
         for key, value in self.remember_multirow.items():
             if not value and key in self.remember_multirowcol:
